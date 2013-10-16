@@ -40,7 +40,8 @@ HEADERS  += mainwindow.h \
     playlistview.h \
     playlistpage.h \
     spiderpage.h \
-    flowlayout.h
+    flowlayout.h \
+    spiderclasses.h
 
 FORMS    += mainwindow.ui
 

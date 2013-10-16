@@ -2,6 +2,7 @@
 #include <QFrame>
 #include <QTextBlock>
 #include "flowlayout.h"
+#include "spiderclasses.h"
 #include <QLabel>
 #include <QImage>
 SpiderPage::SpiderPage(QWidget *parent) :
@@ -83,6 +84,20 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
         QImage image(":/img/cover.png");
         imageLabel->setPixmap(QPixmap::fromImage(image));
         view = imageLabel;
+    } else if(elm.tagName() == QString("grid")) {
+        QGridLayout *gridLayout = new QGridLayout();
+        QFrame *frame = new QFrame();
+        frame->setLayout(gridLayout);
+        view = frame;
+    } else if(elm.tagName() == QString("toolbar")) {
+        QHBoxLayout *gridLayout = new QHBoxLayout();
+        QWidget *frame = new QWidget();
+
+        frame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        frame->setProperty("class", QVariant("toolbar"));
+        frame->setLayout(gridLayout);
+        frame->size().setWidth(parent->width());
+        view = frame;
     } else {
         return new QWidget();
     }
@@ -94,6 +109,9 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
     }
     if(elm.hasAttribute(QString("flex"))) {
 
+    }
+    if(elm.hasAttribute(QString("uri"))) {
+        view->setCursor(Qt::PointingHandCursor);
     }
     QDomNodeList nodes =elm.childNodes();
     for(int i = 0; i < nodes.count(); i++) {

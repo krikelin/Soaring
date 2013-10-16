@@ -3,5 +3,6 @@
         <file>resources/style.qss</file>
         <file>views/boxmodel_start.xml</file>
         <file>img/cover.png</file>
+        <file>views/playlist_header.xml</file>
     </qresource>
 </RCC>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <document>
+	<vbox>
 	<hbox height="64">
-		<img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" />
+		<img uri="spotify:user:drsounds" src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" />
 		<vbox flex="1">
 			<link uri="soaring:internal:home">Welcome</link>
-			<text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim ligula, scelerisque vitae venenatis eget, lobortis vitae nisl. Vivamus et condimentum lorem. Integer pharetra at est a congue. Sed odio nunc, ultricies id est ac, ultrices dictum ante. Curabitur ut velit sit amet eros laoreet euismod ac sit amet ipsum. Aliquam urna dui, vulputate eget nisi eu, tincidunt pretium diam. Nunc cursus urna ac lectus dignissim tempor.</text>
+			<text flex="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim ligula, scelerisque vitae venenatis eget, lobortis vitae nisl. Vivamus et condimentum lorem. Integer pharetra at est a congue. Sed odio nunc, ultricies id est ac, ultrices dictum ante. Curabitur ut velit sit amet eros laoreet euismod ac sit amet ipsum. Aliquam urna dui, vulputate eget nisi eu, tincidunt pretium diam. Nunc cursus urna ac lectus dignissim tempor.</text>
 			
 		</vbox>
 		<vbox>
@@ -12,4 +13,22 @@
 			<flow><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /></flow>
 		</vbox>
 	</hbox>
+<hbox height="64">
+		<img uri="spotify:user:drsounds" src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" />
+		<vbox flex="1">
+			<link uri="soaring:internal:home">Welcome</link>
+			<text flex="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim ligula, scelerisque vitae venenatis eget, lobortis vitae nisl. Vivamus et condimentum lorem. Integer pharetra at est a congue. Sed odio nunc, ultricies id est ac, ultrices dictum ante. Curabitur ut velit sit amet eros laoreet euismod ac sit amet ipsum. Aliquam urna dui, vulputate eget nisi eu, tincidunt pretium diam. Nunc cursus urna ac lectus dignissim tempor.</text>
+			
+		</vbox>
+		<vbox>
+			<text>Related artist</text>
+			<flow><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /><img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" /></flow>
+		</vbox>
+	</hbox>
+	<link uri="A">Recent music</link>
+	<grid height="64">
+		<img src="" width="64" height="64" />
+		<img src="" width="64" height="64" />
+	</grid>
+	</vbox>
 </document>

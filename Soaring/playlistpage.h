@@ -1,7 +1,9 @@
 #ifndef PLAYLISTPAGE_H
 #define PLAYLISTPAGE_H
 #include "sppage.h"
-#include <QTreeView>
+#include <QScrollArea>
+#include "spiderpage.h"
+#include <QTreeWidget>
 class PlaylistPage : public SPPage
 {
     Q_OBJECT
@@ -12,7 +14,9 @@ signals:
 
 public slots:
 private:
-    QTreeView *m_treeView;
+    QTreeWidget *m_treeView;
+    QScrollArea *m_scrollView;
+    SpiderPage *m_header;
 };
 
 #endif // PLAYLISTPAGE_H
