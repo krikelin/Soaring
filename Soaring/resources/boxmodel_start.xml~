@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<hbox height="64">
+		<img src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" />
+		<vbox flex="1">
+			<link uri="soaring:internal:home">Welcome</link>
+			<

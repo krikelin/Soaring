@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/style.qss</file>
+        <file>views/boxmodel_start.xml</file>
+        <file>img/cover.png</file>
+    </qresource>
+</RCC>
