@@ -1,9 +1,9 @@
 #include "sppage.h"
 
-SPPage::SPPage(QWidget *parent) :
+SPPage::SPPage(SPView *mainView, QWidget *parent) :
     QWidget(parent)
 {
-
+    m_mainView = mainView;
     m_boxLayout = new QVBoxLayout(this);
     m_boxLayout->setSpacing(0);
     m_boxLayout->setMargin(0);

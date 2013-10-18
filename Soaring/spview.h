@@ -1,15 +1,16 @@
 #ifndef SPVIEW_H
 #define SPVIEW_H
-
-#include "spuri.h"
+#include "soaring.h"
+#include <QStringList>
+#include <QWidget>
 #include <QTableWidget>
+#include <QFrame>
 #include <QBoxLayout>
-#include "sppage.h"
 class SPView : public QFrame
 {
     Q_OBJECT
 public:
-    explicit SPView(QWidget *parent = 0);
+    explicit SPView(MainWindow *mainWindow, QWidget *parent = 0);
     /**
      * @brief argumentsChanged
      * @param arguments
@@ -31,13 +32,18 @@ public:
      * @param resource
      */
     SPPage* loadPage(const QString& resource);
+    MainWindow *mainWindow() {
+        return m_mainWindow;
+    }
+
     virtual SPPage *loadNewPage(const QString& resource) {}
 signals:
 
 public slots:
 private:
-
+    MainWindow *m_mainWindow;
     QMap<QString, SPPage *> *m_pages;
 };
 
+#include "soaring_includes.h"
 #endif // SPVIEW_H

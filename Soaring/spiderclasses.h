@@ -4,6 +4,7 @@
 #include <QStyle>
 #include <QStyleOption>
 #include <QPainter>
+#include "soaring.h"
 class SpiderToolbar : public QWidget {
     void paintEvent(QPaintEvent *pe)
     {
@@ -14,5 +15,6 @@ class SpiderToolbar : public QWidget {
         QStyle::PE_Widget, &o, &p, this);
     };
 };
+#include "soaring_includes.h"
 
 #endif // SPIDERCLASSES_H

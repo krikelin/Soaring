@@ -1,7 +1,6 @@
 #include "spinternalview.h"
-
-SPInternalView::SPInternalView(QWidget *parent)
-    : SPView(parent)
+SPInternalView::SPInternalView(MainWindow* mainWindow, QWidget *parent)
+    : SPView(mainWindow, parent)
 {
     // Add overview
 

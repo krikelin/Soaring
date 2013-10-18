@@ -1,20 +1,16 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 #include <QMap>
-#include "spuri.h"
-#include "spview.h"
-#include "soaring.h"
 #include <QToolBar>
 #include <QTreeWidgetItem>
 #include <QTreeWidget>
 #include <QLineEdit>
-#include "spinternalview.h"
+#include "soaring.h"
 namespace Ui {
 class MainWindow;
 }
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -36,4 +32,5 @@ private:
     QLineEdit *m_searchBar;
 };
 
+#include "soaring_includes.h"
 #endif // MAINWINDOW_H

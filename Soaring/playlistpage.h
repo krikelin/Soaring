@@ -1,14 +1,13 @@
 #ifndef PLAYLISTPAGE_H
 #define PLAYLISTPAGE_H
-#include "sppage.h"
+#include "soaring.h"
 #include <QScrollArea>
-#include "spiderpage.h"
-#include <QTreeWidget>
+#include "sppage.h"
 class PlaylistPage : public SPPage
 {
     Q_OBJECT
 public:
-    explicit PlaylistPage(QWidget *parent = 0);
+    explicit PlaylistPage(SPView *mainView, QWidget *parent = 0);
 
 signals:
 
@@ -19,4 +18,5 @@ private:
     SpiderPage *m_header;
 };
 
+#include "soaring_includes.h"
 #endif // PLAYLISTPAGE_H

@@ -139,9 +139,6 @@ QGroupBox::title {
     padding-right: 10px;
 }
 QWidget[class="toolbar"] {
-background-color: #333333;
-width: 100%;
-padding: 2px;
 }
 QAbstractScrollArea
 {

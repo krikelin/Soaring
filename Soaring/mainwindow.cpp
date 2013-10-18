@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+
 #include "ui_mainwindow.h"
+#include "mainwindow.h"
 #include <QStandardItemModel>
-#include "playlistview.h"
 #include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->sourcetree, SIGNAL(itemActivated(QTreeWidgetItem*,int)), this, SLOT(itemSelected(QTreeWidgetItem*, int)));
     this->ui->viewstack->layout()->setMargin(0);
         this->ui->viewstack->layout()->setSpacing(0);
-    SPUri uri (QString("soaring:playlist:1f1"));
+    SPUri uri (QString("soaring:playlist:test"));
     this->navigate(uri);
 }
 
@@ -72,10 +72,10 @@ SPView *MainWindow::makeView(QString id) {
         // Create a new view
 
         if(id == QString("internal")) {
-            view = new SPInternalView(this);
+            view = new SPInternalView((MainWindow *)this, this);
         }
         if(id == QString("playlist")) {
-            view = new PlaylistView(this);
+            view = new PlaylistView((MainWindow *)this, this);
         }
       //  qDebug(this->ui->viewstack->layout() != NULL);
         this->ui->viewstack->layout()->addWidget(view);

@@ -14,5 +14,6 @@ signals:
 public slots:
 
 };
+#include "soaring_includes.h"
 
 #endif // SPSOURCEMODEL_H

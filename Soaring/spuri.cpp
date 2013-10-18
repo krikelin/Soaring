@@ -1,5 +1,4 @@
 #include "spuri.h"
-
 SPUri::SPUri(const QString& uri)
 {
     QStringList fragments = uri.split(":");

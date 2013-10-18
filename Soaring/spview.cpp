@@ -1,9 +1,8 @@
 #include "spview.h"
-
-SPView::SPView(QWidget *parent) :
+SPView::SPView(MainWindow *mainWindow, QWidget *parent) :
     QFrame(parent)
 {
-
+    m_mainWindow = mainWindow;
     m_pages = new QMap<QString, SPPage *>();
     QHBoxLayout *boxLayout = new QHBoxLayout( this );
     boxLayout->setMargin(0);

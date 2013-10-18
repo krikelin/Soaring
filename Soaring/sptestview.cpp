@@ -1,6 +1,6 @@
 #include "sptestview.h"
 
-SPTestView::SPTestView(QWidget *parent) :
-    SPView(parent)
+SPTestView::SPTestView(MainWindow *mainWindow, QWidget *parent) :
+    SPView(mainWindow, parent)
 {
 }

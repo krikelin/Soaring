@@ -1,11 +1,11 @@
 #ifndef SPINTERNALVIEW_H
 #define SPINTERNALVIEW_H
+#include "soaring.h"
 #include "spview.h"
-#include "sphomepage.h"
 class SPInternalView : public SPView
 {
 public:
-    explicit SPInternalView(QWidget *parent = 0);
+    explicit SPInternalView(MainWindow *mainWindow, QWidget *parent = 0);
     /**
      * @brief argumentsChanged
      * @param arguments
@@ -15,4 +15,5 @@ public:
     virtual SPPage* loadNewPage(const QString &resource);
 };
 
+#include "soaring_includes.h"
 #endif // SPINTERNALVIEW_H

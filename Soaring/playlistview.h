@@ -1,11 +1,11 @@
 #ifndef PLAYLISTVIEW_H
 #define PLAYLISTVIEW_H
+#include "soaring.h"
 #include "spview.h"
-#include "sphomepage.h"
 class PlaylistView : public SPView
 {
 public:
-    explicit PlaylistView(QWidget *parent = 0);
+    explicit PlaylistView(MainWindow *mainWindow, QWidget *parent = 0);
     /**
      * @brief argumentsChanged
      * @param arguments
@@ -14,5 +14,5 @@ public:
     virtual QString title() { return QString("Internal"); }
     virtual SPPage* loadNewPage(const QString &resource);
 };
-
+#include "soaring_includes.h"
 #endif // PLAYLISTVIEW_H

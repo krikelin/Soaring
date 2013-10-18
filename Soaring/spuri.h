@@ -2,7 +2,6 @@
 #define SPURI_H
 #include <QString>
 #include <QStringList>
-
 #include "soaring.h"
 
 class SPUri
@@ -21,5 +20,6 @@ private:
    QStringList m_arguments;
    QStringList m_fragments;
 };
+#include "soaring_includes.h"
 
 #endif // SPURI_H

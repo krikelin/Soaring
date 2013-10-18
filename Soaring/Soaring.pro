@@ -41,7 +41,8 @@ HEADERS  += mainwindow.h \
     playlistpage.h \
     spiderpage.h \
     flowlayout.h \
-    spiderclasses.h
+    spiderclasses.h \
+    soaring_includes.h
 
 FORMS    += mainwindow.ui
 

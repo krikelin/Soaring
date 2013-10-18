@@ -1,7 +1,6 @@
 #include "playlistview.h"
-#include "playlistpage.h"
-PlaylistView::PlaylistView(QWidget *parent)
-    : SPView(parent)
+PlaylistView::PlaylistView(MainWindow *mainWindow, QWidget *parent)
+    : SPView(mainWindow, parent)
 {
     // Add overview
 

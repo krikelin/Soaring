@@ -1,13 +1,14 @@
 #include "playlistpage.h"
 
-PlaylistPage::PlaylistPage(QWidget *parent) :
-    SPPage(parent)
+PlaylistPage::PlaylistPage(SPView *mainView, QWidget *parent) :
+    SPPage(mainView, parent)
 {
     this->m_scrollView = new QScrollArea();
     this->m_treeView = new QTreeWidget();
     this->tabWidget()->addTab(m_scrollView, QString("Playlist"));
 
-    m_header = new SpiderPage();
+    m_scrollView->setWidgetResizable(true);
+    m_header = new SpiderPage(this, this);
     m_header->setPage(":/views/playlist_header.xml");
     QFrame *frame = new QFrame(this);
     m_scrollView->setLayout(new QVBoxLayout());

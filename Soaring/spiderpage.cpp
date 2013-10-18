@@ -1,14 +1,16 @@
+
 #include "spiderpage.h"
 #include <QFrame>
 #include <QTextBlock>
-#include "flowlayout.h"
-#include "spiderclasses.h"
+#include <QFile>
 #include <QLabel>
 #include <QImage>
-SpiderPage::SpiderPage(QWidget *parent) :
+SpiderPage::SpiderPage(SPPage *mainPage, QWidget *parent) :
     QWidget(parent)
 {
-
+    m_mainView = mainPage->mainView();
+    m_mainWindow = mainPage->mainView()->mainWindow();
+    m_mainPage = mainPage;
 
 }
 void SpiderPage::setPage(QString fileName) {
@@ -26,6 +28,7 @@ void SpiderPage::setDocument(QString document) {
     // Now begin making the tree
 
     QVBoxLayout *flowLayout = new QVBoxLayout(this);
+
     QDomNodeList nodes = m_domDocument->documentElement().childNodes();
     QDomElement parent = m_domDocument->documentElement();
     QWidget *parentWidget = this;
@@ -35,7 +38,7 @@ void SpiderPage::setDocument(QString document) {
             QDomElement element = (QDomElement)node.toElement();
             QWidget *widget = makeElement(element, this);
 
-        //    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
             int flex = 0;
             if(element.hasAttribute(QString("flex"))) {
                 flex = element.attribute("flex").toInt();
@@ -70,14 +73,21 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
         view->setLayout(hboxLayout);
     } else if(elm.tagName() == QString("text")) {
         QLabel *text = new QLabel();
-        text->setText(elm.text());
+        QRegExp query ("\\<((\/?)link) (href)\\=(.*)\\>(.*)\\<\/(link)\\>");
+        text->setTextFormat(Qt::RichText);
         text->setWordWrap(true);
+        text->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
+        text->setText(elm.text().replace("<link ", "<a ").replace(" uri=", " href=").replace("</link>", "</a>"));
+        QWidget::connect(text, SIGNAL(linkActivated(QString)), this, SLOT(linkActivated(QString)));
+
+
         view = text;
     } else if(elm.tagName() == QString("link")) {
         QLabel *text = new QLabel();
         text->setCursor(Qt::PointingHandCursor);
-        text->setText(elm.text());
+        text->setText("<a href=\"" + elm.attribute("uri") + "\">" + elm.text() + "</a>");
         text->setWordWrap(true);
+        text->setOpenExternalLinks(true);
         view = text;
     } else if(elm.tagName() == QString("img")) {
         QLabel *imageLabel = new QLabel();
@@ -133,4 +143,9 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
     }
     if (view != NULL)
     return view;
+}
+
+void SpiderPage::linkActivated(QString link) {
+    SPUri uri = SPUri(link);
+    this->mainWindow()->navigate(uri);
 }
