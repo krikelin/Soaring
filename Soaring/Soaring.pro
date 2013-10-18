@@ -26,7 +26,10 @@ SOURCES += main.cpp\
     playlistview.cpp \
     playlistpage.cpp \
     spiderpage.cpp \
-    flowlayout.cpp
+    flowlayout.cpp \
+    splabel.cpp \
+    searchview.cpp \
+    searchpage.cpp
 
 HEADERS  += mainwindow.h \
     spuri.h \
@@ -42,7 +45,10 @@ HEADERS  += mainwindow.h \
     spiderpage.h \
     flowlayout.h \
     spiderclasses.h \
-    soaring_includes.h
+    soaring_includes.h \
+    splabel.h \
+    searchview.h \
+    searchpage.h
 
 FORMS    += mainwindow.ui
 

@@ -5,6 +5,13 @@
 #include <QFile>
 #include <QLabel>
 #include <QImage>
+#include "splabel.h"
+
+void SpiderPage::uriMouseClicked(QMouseEvent *) {
+   SPUri uri = ((SPLabel *)sender())->uri();
+   this->mainWindow()->navigate(uri);
+}
+
 SpiderPage::SpiderPage(SPPage *mainPage, QWidget *parent) :
     QWidget(parent)
 {
@@ -72,7 +79,7 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
         view = new QFrame();
         view->setLayout(hboxLayout);
     } else if(elm.tagName() == QString("text")) {
-        QLabel *text = new QLabel();
+        SPLabel *text = new SPLabel();
         QRegExp query ("\\<((\/?)link) (href)\\=(.*)\\>(.*)\\<\/(link)\\>");
         text->setTextFormat(Qt::RichText);
         text->setWordWrap(true);
@@ -83,14 +90,14 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
 
         view = text;
     } else if(elm.tagName() == QString("link")) {
-        QLabel *text = new QLabel();
+        SPLabel *text = new SPLabel();
         text->setCursor(Qt::PointingHandCursor);
         text->setText("<a href=\"" + elm.attribute("uri") + "\">" + elm.text() + "</a>");
         text->setWordWrap(true);
         text->setOpenExternalLinks(true);
         view = text;
     } else if(elm.tagName() == QString("img")) {
-        QLabel *imageLabel = new QLabel();
+        SPLabel *imageLabel = new SPLabel();
         QImage image(":/img/cover.png");
         imageLabel->setPixmap(QPixmap::fromImage(image));
         view = imageLabel;
@@ -122,6 +129,9 @@ QWidget* SpiderPage::makeElement(QDomElement& elm, QWidget *parent) {
     }
     if(elm.hasAttribute(QString("uri"))) {
         view->setCursor(Qt::PointingHandCursor);
+        ((SPLabel *) view)->setUri(SPUri(elm.attribute("uri")));
+        this->connect(((QLabel *)view), SIGNAL(clicked(QMouseEvent*)), this, SLOT(uriMouseClicked(QMouseEvent*)));
+
     }
     QDomNodeList nodes =elm.childNodes();
     for(int i = 0; i < nodes.count(); i++) {

@@ -28,6 +28,7 @@ private:
     QVBoxLayout *m_boxLayout;
     SPView *m_mainView;
 
+
 };
 #include "soaring_includes.h"
 

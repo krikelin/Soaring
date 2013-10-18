@@ -4,7 +4,7 @@
 			<img uri="spotify:user:drsounds" src="https://plus.google.com/u/0/me?tab=wX" width="64" height="64" />
 			<vbox flex="1">
 				<text ><a href="soaring:internal:hom">Welcome</a> by <link uri="spotify:user:drsounds">drsounds</link></text>
-				<toolbar flex="1"><text flex="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim ligula, scelerisque vitae venenatis eget, lobortis vitae nisl. Vivamus et condimentum lorem. Integer pharetra at est a congue. Sed odio nunc, <a href="spotify:user:drsounds">ultricies</a> id est ac, ultrices dictum ante. Curabitur ut velit sit amet eros laoreet euismod ac sit amet ipsum. Aliquam urna dui, vulputate eget nisi eu, tincidunt pretium diam. Nunc cursus urna ac lectus dignissim tempor.</text></toolbar>
+				<toolbar flex="1"></toolbar>
 				<text flex="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed enim ligula, scelerisque vitae venenatis eget, lobortis vitae nisl. Vivamus et condimentum lorem. Integer pharetra at est a congue. Sed odio nunc, <a href="spotify:user:drsounds">ultricies</a> id est ac, ultrices dictum ante. Curabitur ut velit sit amet eros laoreet euismod ac sit amet ipsum. Aliquam urna dui, vulputate eget nisi eu, tincidunt pretium diam. Nunc cursus urna ac lectus dignissim tempor.</text>
 			
 			</vbox>

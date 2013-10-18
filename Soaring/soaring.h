@@ -17,6 +17,9 @@ class SpiderPage;
 class SPInternalView;
 class PlaylistPage;
 class PlaylistView;
+class SPLabel;
+class SearchView;
+class SearchPage;
 class SPUtils {
 public:
 

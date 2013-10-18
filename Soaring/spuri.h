@@ -7,6 +7,7 @@
 class SPUri
 {
 public:
+    SPUri();
    SPUri(const QString& uri);
    QString protocol();
    QString module();

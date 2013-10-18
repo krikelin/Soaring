@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<vbox>
+		<hbox>
+			<vbox flex="1">
+				<text>Albums(0)</text>
+				<text></text>
+			<vbox>
+			<vbox flex="1">
+				<text>Artists(0)</text>
+				<text></text>
+			<vbox>
+		</hbox>
+	</vbox>
+</document>

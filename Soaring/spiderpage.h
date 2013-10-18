@@ -13,7 +13,6 @@ public:
     void setDocument(QString document);
     void setPage(QString fileName);
     QWidget *makeElement(QDomElement& elm, QWidget *parent);
-    void linkActivated(QString link);
     MainWindow *mainWindow() {
         return m_mainWindow;
     }
@@ -27,6 +26,9 @@ public:
 signals:
 
 public slots:
+    void uriMouseClicked(QMouseEvent *);
+    void linkActivated(QString link);
+
 private:
     QDomDocument *m_domDocument;
     SPView *m_mainView;

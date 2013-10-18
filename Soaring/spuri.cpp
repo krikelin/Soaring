@@ -9,6 +9,10 @@ SPUri::SPUri(const QString& uri)
     this->m_arguments = SPUtils::getChunk(m_fragments, 2, m_fragments.length());
 
 }
+SPUri::SPUri() {
+
+}
+
 QString SPUri::module() {
     return m_module;
 }

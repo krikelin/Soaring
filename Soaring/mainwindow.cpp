@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->sourcetree, SIGNAL(itemActivated(QTreeWidgetItem*,int)), this, SLOT(itemSelected(QTreeWidgetItem*, int)));
     this->ui->viewstack->layout()->setMargin(0);
         this->ui->viewstack->layout()->setSpacing(0);
-    SPUri uri (QString("soaring:playlist:test"));
+    SPUri uri (QString("soaring:internal:home"));
     this->navigate(uri);
 }
 
@@ -76,6 +76,10 @@ SPView *MainWindow::makeView(QString id) {
         }
         if(id == QString("playlist")) {
             view = new PlaylistView((MainWindow *)this, this);
+        }
+        if(id == QString("search")) {
+            view = new SearchView((MainWindow *)this, this);
+
         }
       //  qDebug(this->ui->viewstack->layout() != NULL);
         this->ui->viewstack->layout()->addWidget(view);

@@ -13,12 +13,14 @@
 #include "spinternalview.h"
 #include "sptestview.h"
 #include "playlistview.h"
+#include "searchview.h"
 #endif
 
 #ifdef SPPAGE_H
 #include "sphomepage.h"
 #include "spiderpage.h"
 #include "playlistpage.h"
+#include "searchpage.h"
 #endif
 
 #endif // SOARING_INCLUDES_H
