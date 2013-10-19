@@ -27,7 +27,7 @@ void SpiderPage::setPage(QString fileName) {
         QString data = file.readAll();
        file.close();
 
-       m_spider->setTemplate(data); // set spider template
+       //m_spider->setTemplate(data); // set spider template
 
        this->setDocument(data);
     }

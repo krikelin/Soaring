@@ -10,7 +10,7 @@ class SPChannelPage : public PlaylistPage
 {
     Q_OBJECT
 public:
-    explicit SPChannelPage(SPView *mainView, QObject *parent = 0);
+    explicit SPChannelPage(SPView *mainView, QWidget *parent = 0);
 
 signals:
 
