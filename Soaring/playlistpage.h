@@ -8,6 +8,9 @@ class PlaylistPage : public SPPage
     Q_OBJECT
 public:
     explicit PlaylistPage(SPView *mainView, QWidget *parent = 0);
+    SpiderPage *header() {
+        return m_header;
+    }
 
 signals:
 

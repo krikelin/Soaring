@@ -34,7 +34,7 @@ private:
     SPView *m_mainView;
     MainWindow *m_mainWindow;
     SPPage *m_mainPage;
-
+    spider::Spider *m_spider;
 
 };
 #include "soaring_includes.h"

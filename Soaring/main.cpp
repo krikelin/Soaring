@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <QFile>
+#include "splogindialog.h"
+
+
 int g_logged_in;
 int main(int argc, char *argv[])
 {
@@ -15,7 +18,6 @@ int main(int argc, char *argv[])
         a.setStyleSheet(file.readAll());
     }
     MainWindow w;
-
     w.show();
 
     return a.exec();

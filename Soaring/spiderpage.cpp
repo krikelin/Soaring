@@ -9,6 +9,7 @@
 
 void SpiderPage::uriMouseClicked(QMouseEvent *) {
    SPUri uri = ((SPLabel *)sender())->uri();
+   m_spider = new spider::Spider();
    this->mainWindow()->navigate(uri);
 }
 
@@ -25,6 +26,9 @@ void SpiderPage::setPage(QString fileName) {
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QString data = file.readAll();
        file.close();
+
+       m_spider->setTemplate(data); // set spider template
+
        this->setDocument(data);
     }
 }

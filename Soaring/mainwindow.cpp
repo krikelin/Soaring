@@ -3,11 +3,26 @@
 #include "mainwindow.h"
 #include <QStandardItemModel>
 #include <QDebug>
+
+void MainWindow::gotChannelList(QList<MCChannel *> _channels) {
+    QList<MCChannel *> *channels = this->mashcast()->channels();
+    for(QList<MCChannel *>::Iterator it = channels->begin(); it != channels->end(); it++) {
+        MCChannel* channel = *it;
+        QTreeWidgetItem *item1 = new QTreeWidgetItem();
+        item1->setText(0, channel->title());
+        item1->setData(0, Qt::UserRole, QVariant(QString("soaring:channel:" + channel->id())));
+        m_channelsItem->addChild(item1);
+    }
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->m_mashcast = new MCMashcast(this);
+    QWidget::connect(m_mashcast, SIGNAL(channelListLoaded(QList<MCChannel*>)), this, SLOT(gotChannelList(QList<MCChannel*>)));
+    this->mashcast()->downloadChannels();
     this->m_views = new QMap<QString, SPView *>();
     QToolBar *toolbar = this->ui->toolBar;
     m_searchBar = new QLineEdit(this);
@@ -45,6 +60,10 @@ void MainWindow::createList() {
 
     this->ui->sourcetree->addTopLevelItem(item1);
 
+    m_channelsItem = new QTreeWidgetItem();
+    m_channelsItem->setText(0, QString("Radio channels"));
+    m_channelsItem->setData(0, Qt::UserRole, QVariant("soaring:internal:radio"));
+    this->ui->sourcetree->addTopLevelItem(m_channelsItem);
 }
 
 void MainWindow::navigate(SPUri &uri) {
@@ -55,6 +74,9 @@ void MainWindow::navigate(SPUri &uri) {
 
 
                 SPView *tview = it.value();
+                if (tview == NULL) {
+                    return;
+                }
                 tview->setVisible(false);
 
         }
@@ -81,10 +103,11 @@ SPView *MainWindow::makeView(QString id) {
             view = new SearchView((MainWindow *)this, this);
 
         }
-      //  qDebug(this->ui->viewstack->layout() != NULL);
-        this->ui->viewstack->layout()->addWidget(view);
-        (*this->m_views)[id] = view;
-
+        if (view != NULL) {
+            //  qDebug(this->ui->viewstack->layout() != NULL);
+            this->ui->viewstack->layout()->addWidget(view);
+            (*this->m_views)[id] = view;
+        }
     }
 
     return view;

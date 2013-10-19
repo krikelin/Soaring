@@ -20,6 +20,8 @@ class PlaylistView;
 class SPLabel;
 class SearchView;
 class SearchPage;
+#include "spider/Spider.h"
+
 class SPUtils {
 public:
 

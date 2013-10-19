@@ -6,12 +6,10 @@
 
 QT       += core gui xml
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += core widgets multimedia network sql
 
 TARGET = Soaring
 TEMPLATE = app
-
-
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -29,7 +27,23 @@ SOURCES += main.cpp\
     flowlayout.cpp \
     splabel.cpp \
     searchview.cpp \
-    searchpage.cpp
+    searchpage.cpp \
+    splogindialog.cpp \
+    splogincredential.cpp \
+    mcchannel.cpp \
+    mcepisode.cpp \
+    mcresource.cpp \
+    mcscrobbler.cpp \
+    mcplayer.cpp \
+    mcstreamer.cpp \
+    mcmediastreamer.cpp \
+    mashcast.cpp \
+    mcmashcast.cpp \
+    spchannelview.cpp \
+    spchannelpage.cpp \
+    spider/Spider.cpp \
+    spider/luascript/luascript.cpp \
+    vendor/luahtml/luahtml.cpp
 
 HEADERS  += mainwindow.h \
     spuri.h \
@@ -48,9 +62,35 @@ HEADERS  += mainwindow.h \
     soaring_includes.h \
     splabel.h \
     searchview.h \
-    searchpage.h
+    searchpage.h \
+    splogindialog.h \
+    splogincredential.h \
+    mcchannel.h \
+    mcepisode.h \
+    mashcast.h \
+    mashcast_includes.h \
+    mcresource.h \
+    mcscrobbler.h \
+    mcplayer.h \
+    mcstreamer.h \
+    mcmediastreamer.h \
+    mcmashcast.h \
+    spchannelview.h \
+    spchannelpage.h \
+    spider/Spider.h \
+    spider/luascript/luascript.h \
+    vendor/luahtml/luahtml.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    splogindialog.ui
 
 RESOURCES += \
     resources.qrc
+
+CONFIG += c++11
+unix: CONFIG += link_pkgconfig
+unix: PKGCONFIG += lua5.1
+
+unix: PKGCONFIG += libxml-2.0
+
+unix: PKGCONFIG += luabind

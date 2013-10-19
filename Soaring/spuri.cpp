@@ -3,8 +3,11 @@ SPUri::SPUri(const QString& uri)
 {
     QStringList fragments = uri.split(":");
     this->m_fragments = fragments;
+    if(fragments.count() > 1)
+   this->m_protocol = m_fragments.at(0);
+    if(fragments.count() > 2)
     this->m_module = m_fragments.at(1);
-    this->m_protocol = m_fragments.at(0);
+      if(fragments.count() > 3)
     this->m_resource = m_fragments.at(2);
     this->m_arguments = SPUtils::getChunk(m_fragments, 2, m_fragments.length());
 

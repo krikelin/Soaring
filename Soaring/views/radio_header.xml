@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<vbox>
+		<hbox>
+			<img src="" />
+			<vbox flex="1">
+				<text><a href="soaring:channel:p1">Sveriges Radio p1</a></text>				
+			</vbox>
+		</hbox>
+	</vbox>
+</document>
