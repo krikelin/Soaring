@@ -2,6 +2,8 @@
 #define H_SPIDERPAGE_
 
 #include "soaring.h"
+#include "lua.h"
+#include "luabind/luabind.hpp"
 #include <QString>
 #include <QDomDocument>
 class SpiderPage : public QWidget
@@ -11,7 +13,7 @@ public:
     explicit SpiderPage(SPPage *mainPage, QWidget *parent);
 
     void setDocument(QString document);
-    void setPage(QString fileName);
+    void setPage(QString fileName, luabind::object *lua_data);
     QWidget *makeElement(QDomElement& elm, QWidget *parent);
     MainWindow *mainWindow() {
         return m_mainWindow;
@@ -21,6 +23,9 @@ public:
     }
     SPView *mainView() {
         return m_mainView;
+    }
+    spider::Spider *spider() {
+        return m_spider;
     }
 
 signals:

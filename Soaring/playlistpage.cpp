@@ -9,7 +9,7 @@ PlaylistPage::PlaylistPage(SPView *mainView, QWidget *parent) :
 
     m_scrollView->setWidgetResizable(true);
     m_header = new SpiderPage(this, this);
-    m_header->setPage(":/views/playlist_header.xml");
+    m_header->setPage(":/views/playlist_header.xml", getToken());
     QFrame *frame = new QFrame(this);
     m_scrollView->setLayout(new QVBoxLayout());
     frame->setLayout(new QVBoxLayout());

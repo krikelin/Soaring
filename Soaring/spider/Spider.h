@@ -31,25 +31,32 @@ public:
 		return _luaState;
 	}
 
-	void setTemplate(const string newTemplate) {
-		_template = newTemplate;
+    void setTemplate(string* newTemplate) {
+        _template = newTemplate;
 	}
 	void preprocess();
 	void render();
+    luabind::object *data() {
+        return m_data;
+    }
+    void setData(luabind::object *data);
+
 	xmlDocPtr documentElement() {
 		return _document;
 	}
 	void addRenderCallback(spider_render_element callback) {
 		this->on_render_element = callback;
 	}
-	string xml() {
+    string *xml() {
 		return _xml;
-	}
+    }
+
 private:
-	string _xml;
+    luabind::object *m_data;
+    string *_xml;
 	spider_render_element on_render_element;
 	xmlDocPtr _document;
-	string _template;
+    string *_template;
 	lua_State *_luaState;
 };
 

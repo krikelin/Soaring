@@ -3,10 +3,11 @@
 SPHomePage::SPHomePage(SPView *mainView, QWidget *parent) :
     SPPage(mainView, parent)
 {
-    QScrollArea *scrollArea = new QScrollArea(this);
-
     m_spiderPage = new SpiderPage(this, this);
-    m_spiderPage->setPage(":/views/boxmodel_start.xml");
+    QScrollArea *scrollArea = new QScrollArea(this);
+    luabind::object obj = luabind::newtable(    m_spiderPage->spider()->luaState());
+         (obj)["title"] = ("joy");
+    m_spiderPage->setPage(":/views/boxmodel_start.xml", &obj);
     scrollArea->setWidget(m_spiderPage);
     scrollArea->setLayout(new QGridLayout(this));
     scrollArea->setWidgetResizable(true);

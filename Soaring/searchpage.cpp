@@ -9,7 +9,8 @@ SearchPage::SearchPage(SPView* mainView, QWidget *parent) :
 
     m_scrollView->setWidgetResizable(true);
     m_header = new SpiderPage(this, this);
-    m_header->setPage(":/views/search_header.xml");
+    luabind::object *obj = new luabind::object;
+    m_header->setPage(":/views/search_header.xml", obj);
     QFrame *frame = new QFrame(this);
     m_scrollView->setLayout(new QVBoxLayout());
     frame->setLayout(new QVBoxLayout());

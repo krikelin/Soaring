@@ -3,5 +3,8 @@
 SPChannelPage::SPChannelPage(SPView *mainView, QWidget *parent) :
     PlaylistPage(mainView, parent)
 {
-    header()->setDocument(":/views/channel_header.xml");
+    luabind::object *token = new luabind::object;
+    setToken(token);
+    (*token)["title"] = "test";
+    header()->setPage(QString(":/views/channel_header.xml"), this->getToken());
 }

@@ -6,6 +6,7 @@
 #include "spview.h"
 #include "playlistpage.h"
 #include "sppage.h"
+#include "luabind/luabind.hpp"
 class SPChannelPage : public PlaylistPage
 {
     Q_OBJECT
@@ -15,7 +16,7 @@ public:
 signals:
 
 public slots:
-
+private:
 };
 #include "soaring_includes.h"
 

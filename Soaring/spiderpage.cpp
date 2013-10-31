@@ -9,7 +9,6 @@
 
 void SpiderPage::uriMouseClicked(QMouseEvent *) {
    SPUri uri = ((SPLabel *)sender())->uri();
-   m_spider = new spider::Spider();
    this->mainWindow()->navigate(uri);
 }
 
@@ -19,17 +18,19 @@ SpiderPage::SpiderPage(SPPage *mainPage, QWidget *parent) :
     m_mainView = mainPage->mainView();
     m_mainWindow = mainPage->mainView()->mainWindow();
     m_mainPage = mainPage;
+    m_spider = new spider::Spider();
 
 }
-void SpiderPage::setPage(QString fileName) {
+void SpiderPage::setPage(QString fileName, luabind::object *lua_data = NULL) {
     QFile file (fileName);
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QString data = file.readAll();
-       file.close();
-
-       //m_spider->setTemplate(data); // set spider template
-
-       this->setDocument(data);
+       QString data = file.readAll();
+        file.close();
+        m_spider->setData(lua_data);
+        m_spider->setTemplate(new string(data.toStdString())); // set spider template
+        m_spider->preprocess();
+        QString result = QString::fromStdString(*m_spider->xml());
+        this->setDocument(result);
     }
 }
 
